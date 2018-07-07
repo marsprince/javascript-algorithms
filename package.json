@@ -9,10 +9,10 @@
     "ci": "npm run lint && npm run test -- --coverage",
     "codecov": "codecov"
   },
-  "pre-commit": [
-    "lint",
-    "test"
-  ],
+//  "pre-commit": [
+//    "lint",
+//    "test"
+//  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/trekhleb/javascript-algorithms.git"
