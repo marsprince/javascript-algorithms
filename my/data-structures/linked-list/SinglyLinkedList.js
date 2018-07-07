@@ -41,10 +41,6 @@ export default class SinglyLinkedList {
     }
   }
 
-  remove(position) {
-    return this;
-  }
-
   delete(value) {
     if (!this.head) return null;
     let deleteNode = null;
