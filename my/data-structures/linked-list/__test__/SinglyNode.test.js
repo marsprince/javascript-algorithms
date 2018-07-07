@@ -1,8 +1,8 @@
-import LinkedListNode from '../LinkedListNode';
+import SinglyNode from '../SinglyNode';
 
-describe('LinkedListNode', () => {
+describe('SinglyNode', () => {
   it('should create list node with value', () => {
-    const node = new LinkedListNode(1);
+    const node = new SinglyNode(1);
 
     expect(node.value).toBe(1);
     expect(node.next).toBeNull();
@@ -10,7 +10,7 @@ describe('LinkedListNode', () => {
 
   it('should create list node with object as a value', () => {
     const nodeValue = { value: 1, key: 'test' };
-    const node = new LinkedListNode(nodeValue);
+    const node = new SinglyNode(nodeValue);
 
     expect(node.value.value).toBe(1);
     expect(node.value.key).toBe('test');
@@ -18,8 +18,8 @@ describe('LinkedListNode', () => {
   });
 
   it('should link nodes together', () => {
-    const node2 = new LinkedListNode(2);
-    const node1 = new LinkedListNode(1, node2);
+    const node2 = new SinglyNode(2);
+    const node1 = new SinglyNode(1, node2);
 
     expect(node1.next).toBeDefined();
     expect(node2.next).toBeNull();
@@ -28,7 +28,7 @@ describe('LinkedListNode', () => {
   });
 
   it('should convert node to string', () => {
-    const node = new LinkedListNode(1);
+    const node = new SinglyNode(1);
 
     expect(node.toString()).toBe('1');
 
@@ -38,7 +38,7 @@ describe('LinkedListNode', () => {
 
   it('should convert node to string with custom stringifier', () => {
     const nodeValue = { value: 1, key: 'test' };
-    const node = new LinkedListNode(nodeValue);
+    const node = new SinglyNode(nodeValue);
     const toStringCallback = value => `value: ${value.value}, key: ${value.key}`;
 
     expect(node.toString(toStringCallback)).toBe('value: 1, key: test');

@@ -1,4 +1,4 @@
-export default class LinkedListNode {
+export default class SinglyNode {
   constructor(value, next = null) {
     this.value = value;
     this.next = next;
