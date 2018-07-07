@@ -11,6 +11,7 @@ describe('LinkedListNode', () => {
   it('should create single linkedList with head', () => {
     const singleLinkedList = new SingleLinkedList(head);
     expect(singleLinkedList.head.value).toBe(0);
+    expect(singleLinkedList.length()).toBe(6);
   });
   it('should get single linkedList head', () => {
     const singleLinkedList = new SingleLinkedList(head);
