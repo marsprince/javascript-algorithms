@@ -4,7 +4,8 @@ interface Callback {
 
 interface Event {
   id: number
-  cb: Callback
+  cb: Callback,
+  fired: boolean
 }
 
 interface EventObj {
@@ -26,7 +27,8 @@ class EventEmitter {
     }
     this.event[type].push({
       id: ++this.id,
-      cb
+      cb,
+      fired: false
     });
     return this.id;
   }
@@ -34,6 +36,9 @@ class EventEmitter {
   emit(type: string, ...args: any[]) {
     this.event[type] && this.event[type].length !== 0 && this.event[type].forEach(event => {
       event.cb.apply(this, args)
+      if (event.fired) {
+        this.off(type, event.id)
+      }
     })
   }
 
@@ -45,6 +50,13 @@ class EventEmitter {
     } else {
       delete this.event[type]
     }
+  }
+
+  once(type: string, cb: Callback) {
+    this.on(type, cb);
+    const length = this.event[type].length;
+    this.event[type][length - 1].fired = true;
+    return this.id
   }
 }
 
